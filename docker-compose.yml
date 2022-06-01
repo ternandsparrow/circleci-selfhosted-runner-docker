@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  cci:
+    container_name: circleci-runner-wow
+    build: .
+    environment:
+      CIRCLECI_API_TOKEN: ${CIRCLECI_API_TOKEN:?}
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 100m
